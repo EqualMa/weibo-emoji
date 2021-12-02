@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.6.0",
     "@keyv/sqlite": "^2.0.3",
     "@mui/material": "^5.2.2",
+    "copy-to-clipboard": "^3.3.1",
     "got": "^11.8.3",
     "keyv": "^4.0.4",
     "next": "12.0.4",
