@@ -120,7 +120,7 @@ export default function Home() {
       <Paper
         sx={{
           padding: "0 8px 8px 8px",
-          margin: "8px auto",
+          margin: "8px auto 32px auto",
           maxWidth: "640px",
           minHeight: "548px",
         }}
