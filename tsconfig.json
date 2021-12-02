@@ -2,7 +2,7 @@
   "ts-node": {
     "files": true,
     "moduleTypes": {
-      "scripts/*.ts": "cjs"
+      "**/*.ts": "cjs"
     }
   },
   "compilerOptions": {

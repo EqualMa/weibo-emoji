@@ -6,6 +6,7 @@ import * as fsp from "fs/promises";
 import * as path from "path";
 import Keyv from "keyv";
 import _got from "got";
+import { consume } from "../src/pc";
 
 const pipeline = promisify(stream.pipeline);
 
@@ -46,8 +47,9 @@ async function main() {
   await fsp.rm(ROOT_DIR, { recursive: true, force: true });
   await fsp.mkdir(ROOT_DIR, { recursive: true });
 
-  const results = await Promise.allSettled(
-    emoticons.map(async (emo) => {
+  const results = await consume({
+    values: emoticons,
+    consumer: async (emo) => {
       try {
         const ext = emo.url.slice(emo.url.lastIndexOf(".") + 1);
         const name = emo.value;
@@ -62,8 +64,8 @@ async function main() {
       } catch (err) {
         throw new EmoticonSyncError(emo, err);
       }
-    })
-  );
+    },
+  });
 
   const failed = results.filter(
     (res): res is PromiseRejectedResult => res.status === "rejected"
