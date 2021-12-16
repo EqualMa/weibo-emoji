@@ -31,3 +31,11 @@ export const categories = getCategories(fullData);
 export type EmoticonCategoryData = typeof categories[number];
 
 export type Emoticon = EmoticonCategoryData["value"][number];
+
+const valueMap = new Map(
+  categories.flatMap((cate) => cate.value.map((v) => [v.value, v]))
+);
+
+export function getByValue(value: string): Emoticon | undefined {
+  return valueMap.get(value);
+}
