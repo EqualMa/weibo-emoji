@@ -8,6 +8,11 @@ module.exports = {
         destination: "/api/emoticon/%5B:slug%5D",
         permanent: true,
       },
+      {
+        source: "/emoticon/%5B:slug%5D",
+        destination: "/api/emoticon/%5B:slug%5D",
+        permanent: true,
+      },
     ];
   },
 };
